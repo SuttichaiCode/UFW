@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+        }
+
+
+        .card {
+            --blur: 16px;
+            --size: clamp(300px, 50vmin, 600px);
+            width: var(--size);
+            aspect-ratio: 4 / 3;
+            position: relative;
+            border-radius: 2rem;
+            overflow: hidden;
+            color: #000;
+            transform: translateZ(0);
+        }
+
+
+        .card__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(calc(1 + (var(--hover, 0) * 0.25))) rotate(calc(var(--hover, 0) * -5deg));
+            transition: transform 0.2s;
+        }
+
+
+        .card__footer {
+            padding: 0 1.5rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: red;
+            display: grid;
+            grid-template-row: auto auto;
+            gap: 0.5ch;
+            background: hsl(0 0% 100% / 0.5);
+            backdrop-filter: blur(var(--blur));
+            height: 30%;
+            align-content: center;
+        }
+
+
+        .card__action {
+            position: absolute;
+            aspect-ratio: 1;
+            width: calc(var(--size) * 0.15);
+            bottom: 30%;
+            right: 1.5rem;
+            transform: translateY(50%)
+            translateY(
+                calc(
+                    (var(--size) * 0.4)
+                )
+            )
+            translateY(calc(var(--hover, 0) * (var(--size) * -0.4)));
+            background: purple;
+            display: grid;
+            place-items: center;
+            border-radius: 0.5rem;
+            background: hsl(0 0% 100% / 0.5);
+            transition: transform 0.2s;
+        }
+
+
+        .card__action svg {
+            aspect-ratio: 1;
+            width: 50%;
+        }
+
+
+        .card__footer span:nth-of-type(1) {
+            font-size: calc(var(--size) * 0.065);
+        }
+
+
+        .card__footer span:nth-of-type(2) {
+            font-size: calc(var(--size) * 0.055);
+        }
+
+
+        .card:is(:hover, :focus-visible) {
+            --hover: 1;
+        }
+
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            gap: 20px; /* space between cards */
+            justify-items: center;
+            margin-top: 20px;
+        }
+        h1 {
+    margin-bottom: 20px; /* ปรับตามต้องการ */
+}
+
+
+    </style>
+</head>
+<body>
+    
+<h1> UFW Firewall on Debian linux</h1>
+
+    <div class="container">
+        <a href="#" class="card">
+            <img src="https://scontent-bkk1-1.xx.fbcdn.net/v/t1.15752-9/482855541_1345459500239268_751447861565679648_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=9f807c&_nc_eui2=AeGmZ0-wx0g2--otKyLh_O7jJGdJV3z7GmYkZ0lXfPsaZvuJMiKPFV8mqoZQw9K0Uxz67P77hF4mUicGvhUXMyCT&_nc_ohc=cLhKsPZNIAoQ7kNvgFkglLp&_nc_oc=Adjr1jvHXk8Eqg8k6YTUezKlnSD0RACffoe6xF6nL1U7vXHyAf1mfmo0f8FcM_yNzN0&_nc_zt=23&_nc_ht=scontent-bkk1-1.xx&oh=03_Q7cD1wGvZHCyQNhkaOontnRWUAGMwwJn0RGHSgRuKk9L4lmeMg&oe=67F12BE8" alt="balloon with an emoji face" class="card__img">
+            <span class="card__footer">
+              <span>Mr.Chivorn Kang</span>
+              <span class="custom-span">64010912532</span>
+            </span>
+            <span class="card__action">
+              <svg viewBox="0 0 448 512" title="play">
+                <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" />
+              </svg>
+            </span>
+          </a>
+        <a href="#" class="card">
+            <img src="blob:https://www.facebook.com/b94afa21-d6b8-447a-ab40-0ff7b6b4b945" alt="balloon with an emoji face" class="card__img">
+            <span class="card__footer">
+              <span>นาย สุทธิชัย สังฆมณี </span>
+              <span class="custom-span">65010912569</span>
+            </span>
+            <span class="card__action">
+              <svg viewBox="0 0 448 512" title="play">
+                <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" />
+              </svg>
+            </span>
+          </a>
+    </div>
+    <div class="container">
+      <img src=" " alt="balloon with an emoji face" class="card__img">
+
+
+
+    </div>
+    
+
+
+    <div class="container">
+        <a href="#" class="card"> 
+            <img src="https://scontent.fbkk22-2.fna.fbcdn.net/v/t1.15752-9/481623303_644247301889155_1263713656628492570_n.jpg?stp=dst-jpg_p480x480_tt6&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeGWGoM9Nf8ztO7qGIrpQoQxy4PWZaYsEIbLg9ZlpiwQhpixXgJtXHYedtmCKQ9iJ89lJOJPrLNyRY6adoEfci3Y&_nc_ohc=P-V1H2dle7QQ7kNvgHD6JtR&_nc_oc=AdjUOAv7x9Wd-CxEVdK02YRzu0Yq--4FLd_F-vY12M7uxI7ex-aQzk68fsLoLxgWj54&_nc_ad=z-m&_nc_cid=1483&_nc_zt=23&_nc_ht=scontent.fbkk22-2.fna&oh=03_Q7cD1wG9JSKUcYlzmA2c9p2-cIOvVMS5E2YmDxC9cUO9iOzdDw&oe=67F15BD0" alt="balloon with an emoji face" class="card__img">
+            
+            <span class="card__footer">
+              <span>นางสาว ณิชารีย์ สุโพธิ์แสน</span>
+              <span class="custom-span">65010912590</span>
+            </span>
+            <span class="card__action">
+              <svg viewBox="0 0 448 512" title="play">
+                <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" />
+              </svg>
+            </span>
+          </a>
+        <a href="#" class="card">
+            <img src="https://scontent-bkk1-2.xx.fbcdn.net/v/t1.15752-9/482591098_2998749250288856_1388599143774787332_n.jpg?stp=dst-jpg_s640x640_tt6&_nc_cat=103&ccb=1-7&_nc_sid=0024fc&_nc_eui2=AeEGCieMK0Uj-L4AwlFhx9FwG8J3uEKVvGobwne4QpW8alczoEuCShNTGKHCGv-gnF3EyqS4_-groQN6TjIhXIla&_nc_ohc=IrOU4UANK4sQ7kNvgF1gRaz&_nc_oc=AdhrsjZ71gqD_ZpwOqtgJcugBElPeVQkiDxA8OvmEj7IIEo7XAhxS_ldNq8gVkGogJQ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-bkk1-2.xx&oh=03_Q7cD1wHedkVd1GxdCJtvagkRVplhM69dzePl5zBQ9WMV8n44yA&oe=67F13903" alt="balloon with an emoji face" class="card__img">
+            <span class="card__footer">
+              <span>นางสาว นิลเนตร อินพรหมมา</span>
+              <span class="custom-span"> 65010912601</span>
+            </span>
+            <span class="card__action">
+              <svg viewBox="0 0 448 512" title="play">
+                <path d="M424.4 214.7L72.4 6.6C43.8-10.3 0 6.1 0 47.9V464c0 37.5 40.7 60.1 72.4 41.3l352-208c31.4-18.5 31.5-64.1 0-82.6z" />
+              </svg>
+            </span>
+          </a>
+    </div>
+</body>
+</html>
